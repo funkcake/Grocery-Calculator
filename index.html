@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>GLC</title>
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1>Grocery Calculator</h1>
+        <p>Click on the price of the item to add it to the list total</p>
+    </div>
+    <div class="container text-center">
+        <div class="row">
+          <div class="col-4">
+            <button style="margin: 5px; padding-right: 20px" type="button" class="btn btn-primary btn-lg" onclick="sum(0.99)">$0.99 </button><button style="margin: 5px;" type="button" class="btn btn-primary btn-lg" onclick="sum(1.99)">$1.99 </button><button style="margin: 5px;" type="button" class="btn btn-primary btn-lg" onclick="sum(2.99)">$2.99 </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="btn-group btn-group-lg" role="group">
+            <button style="padding-right: 25px;" type="button" class="btn btn-primary btn-lg" onclick="sum(3.99)">$3.99 </button><button style="padding-right: 25px;" type="button" class="btn btn-primary btn-lg" onclick="sum(4.99)">$4.99 </button><button style="padding-right: 25px;" type="button" class="btn btn-primary btn-lg" onclick="sum(5.99)">$5.99 </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="btn-group btn-group-lg" role="group">
+            <button style="padding-right: 25px;" type="button" class="btn btn-primary btn-lg" onclick="sum(6.99)">$6.99 </button><button style="padding-right: 25px;" type="button" class="btn btn-primary btn-lg" onclick="sum(7.99)">$7.99 </button><button style="padding-right: 25px;" type="button" class="btn btn-primary btn-lg" onclick="sum(8.99)">$8.99 </button>
+          </div>
+        </div>
+        <div class="row">
+            <div class="btn-group btn-group-lg" role="group">
+                <button style="padding-right: 25px;" type="button" class="btn btn-primary btn-lg" onclick="sum(9.99)">$9.99 </button><button type="button" class="btn btn-primary btn-lg" onclick="sum(10.99)">$10.99</button><button type="button" class="btn btn-primary btn-lg" onclick="sum(11.99)">$11.99</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-primary btn-lg" onclick="sum(12.99)">$12.99</button><button type="button" class="btn btn-primary btn-lg" onclick="sum(13.99)">$13.99</button><button type="button" class="btn btn-primary btn-lg" onclick="sum(14.99)">$14.99</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-primary btn-lg" onclick="sum(15.99)">$15.99</button><button type="button" class="btn btn-primary btn-lg" onclick="sum(16.99)">$16.99</button><button type="button" class="btn btn-primary btn-lg" onclick="sum(17.99)">$17.99</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-primary btn-lg" onclick="sum(18.99)">$18.99</button><button type="button" class="btn btn-primary btn-lg" onclick="sum(19.99)">$19.99</button><button type="button" class="btn btn-primary btn-lg" onclick="sum(20.99)">$20.99</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-danger btn-lg" onclick="clearAll()">Clear all</button><button type="button" class="btn btn-warning btn-lg" onclick="undo()">Undo</button>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Total:</h3><h3 id="total">0.00</h3>
+        </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <script>
+        var lastInput = 0;
+        var numbers = [];
+
+        function undo(){
+            total = document.getElementById("total");
+            lastInput = numbers[numbers.length - 1];
+            numbers.pop()
+            if(numbers.length > 0){
+                total.innerHTML = parseFloat(total.innerHTML) - lastInput;
+            }else{
+                total.innerHTML = 0.00;
+            }
+            console.log(numbers);
+            console.log(numbers.length);
+        }
+        function clearAll(){
+            total = document.getElementById("total");
+            total.innerHTML = 0.00;
+        }
+        function sum(x){
+            numbers.push(x);
+            total = document.getElementById("total");
+            num = numbers[numbers.length - 1];
+            console.log("num "+ num);
+            total.innerHTML = parseFloat(total.innerHTML) + num;
+            console.log("total" + total);
+            console.log("numbers " + numbers);
+        }
+    </script>
+</body>
+</html>
