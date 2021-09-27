@@ -1,3 +1,3 @@
 # Grocery-Calculator
 
-A simple calculator tha tcan be used in the grocery store.
+A simple calculator that can be used in the grocery store.
